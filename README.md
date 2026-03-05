@@ -17,7 +17,7 @@ Computer startup was slow and system performance was degraded.
 Opened Task Manager → Startup Apps and noticed several programs enabled at startup.
 
  Screenshot:
-Use your screenshot showing many startup apps enabled.
+![Enabled](Startup-apps.png)
 
  Root Cause
 
@@ -37,10 +37,11 @@ Right-click unnecessary programs
 
 Click Disable
 
-📸 Screenshot:
-Use your screenshot showing disabled startup programs.
+ Screenshot:
+ ![Disabled](Startup-disabled.png)
 
-✅ Result
+
+Result:
 
 Startup performance improved and system boot time was reduced.
 
