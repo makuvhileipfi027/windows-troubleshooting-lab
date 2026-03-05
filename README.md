@@ -1,115 +1,177 @@
 🖥️ Windows Troubleshooting Lab
+
+
 🔹 Overview
 
 This lab demonstrates my hands-on experience troubleshooting Windows 10/11 system issues including performance problems, BSOD errors, network failures, printer configuration, file sharing, and application crashes.
 
-✅ 1. System Freezing & Slow Performance
-Problem
 
-Computer was slow, freezing, and taking long to boot.
+1️ Slow System Performance (Startup Programs)
 
-Diagnosis
+ Problem
 
-Checked resource usage and startup programs.
+Computer startup was slow and system performance was degraded.
 
-Tools Used
-Task Manager
-msconfig
-Disk Cleanup
-Actions Taken
+ Diagnosis
 
-Disabled unnecessary startup programs
+Opened Task Manager → Startup Apps and noticed several programs enabled at startup.
 
-Cleared temporary files
+ Screenshot:
+Use your screenshot showing many startup apps enabled.
 
-Performed disk cleanup
+ Root Cause
 
-Scanned for malware
+Too many applications launching during startup were consuming system resources and slowing down boot time.
 
-Result
+ Action Taken
 
-System performance improved and freezing stopped.
+Disabled unnecessary startup applications using Task Manager.
 
-✅ 2. Blue Screen (BSOD) Repair
-Problem
+Steps performed:
 
-System crashed with Blue Screen errors.
+Press Ctrl + Shift + Esc
 
-Commands Used
+Open Startup Apps
+
+Right-click unnecessary programs
+
+Click Disable
+
+📸 Screenshot:
+Use your screenshot showing disabled startup programs.
+
+✅ Result
+
+Startup performance improved and system boot time was reduced.
+
+2️⃣ System File Integrity Check
+4
+🛑 Problem
+
+Potential system file corruption affecting system stability.
+
+🔍 Diagnosis
+
+Executed System File Checker to scan Windows system files.
+
+Command used:
+
 sfc /scannow
-DISM /Online /Cleanup-Image /RestoreHealth
-Result
 
-Corrupted system files were repaired and system stability restored.
+📸 Screenshot:
+Use your screenshot showing SFC scan running (14%).
 
-✅ 3. Network & Internet Connectivity Issues
-Problem
+🎯 Root Cause
 
-Connected to WiFi/LAN but no internet access.
+Possible corrupted or missing Windows system files.
 
-Commands Used
-ipconfig /release
-ipconfig /renew
-ipconfig /flushdns
-ping google.com
-Additional Troubleshooting
+🛠 Action Taken
 
-Changed network profile from Public to Private
+Ran:
 
-Enabled Network Discovery
+sfc /scannow
 
-Enabled File and Printer Sharing
+The tool scanned and automatically repaired corrupted system files.
 
-Checked firewall settings
+✅ Result
 
-Updated network adapter drivers in Device Manager
+System file integrity verified and repaired where necessary.
 
-Result
+3️⃣ Network Configuration Check
+4
+🛑 Problem
 
-Internet and internal network connectivity restored.
+Network device discovery and file sharing issues.
 
-✅ 4. Application / Software Crashes
-Problem
+🔍 Diagnosis
 
-Applications were freezing or closing unexpectedly.
+Checked Network Profile settings.
 
-Tools Used
-Event Viewer
-%temp%
-Device Manager
-Actions Taken
+Found the network configuration settings.
 
-Checked Event Viewer logs
+📸 Screenshot:
+Use your screenshot showing Private Network selected.
 
-Cleared temporary files
+🎯 Root Cause
 
-Updated drivers
+Incorrect network profile (Public network can block device discovery).
 
-Reinstalled affected applications
+🛠 Action Taken
 
-Result
+Changed network profile to:
 
-Applications functioned normally without crashes.
+Private Network
 
-✅ 5. Printer & File Sharing Issues
-Problem
+Steps:
 
-Printer not printing or not visible on network.
+Open Settings
 
-Commands Used
+Go to Network & Internet
+
+Select Wi-Fi
+
+Open the connected network
+
+Set Network profile = Private
+
+✅ Result
+
+Network discovery and device communication enabled.
+
+4️⃣ Print Spooler Service Troubleshooting
+4
+🛑 Problem
+
+Printer services not responding and printing tasks failing.
+
+🔍 Diagnosis
+
+Checked Print Spooler service status.
+
+Command used:
+
+sc query spooler
+
+📸 Screenshot:
+Use your screenshot showing:
+
+STATE : STOPPED
+🎯 Root Cause
+
+Print Spooler service was stopped, preventing printing operations.
+
+🛠 Action Taken
+
+Restarted the service using Command Prompt.
+
+Commands executed:
+
 net stop spooler
 net start spooler
-services.msc
-Actions Taken
+✅ Result
 
-Restarted Print Spooler service
+Print Spooler service restarted successfully and printing functionality restored.
 
-Reinstalled printer drivers
+5️⃣ System Resource Monitoring
+🛑 Problem
 
-Enabled File & Printer Sharing
+Need to monitor CPU and memory utilization.
 
-Adjusted firewall permissions
+🔍 Diagnosis
 
-Result
+Opened Task Manager → Performance tab to analyze system resource usage.
 
-Printer connectivity restored across internal network.
+📸 Screenshot:
+Use your screenshot showing CPU performance graph.
+
+🎯 Root Cause
+
+High CPU usage caused by multiple background processes.
+
+🛠 Action Taken
+
+Analyzed running processes and optimized startup applications.
+
+✅ Result
+
+System performance stabilized and CPU usage reduced.
